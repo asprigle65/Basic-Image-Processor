@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build with OpenCV (local folder)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-I./opencv/build/include",				//
+        "-I./opencv/build/include/opencv2",		//
+        "-L./opencv/build/x64/vc16/lib",		// Allows this project to access OpenCV files
+        "imgpcpj.cpp",
+        "-lopencv_world4110",  // Replace with your OpenCV version
+        "-o", "imgpcpj.exe"
+      ],
+      "options": {
+        "shell": {
+          "executable": "cmd.exe",
+          "args": ["/c"]
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
